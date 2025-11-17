@@ -1,22 +1,39 @@
-To create a custom logo in the top left corner of Jellyfin using CSS, you will need to apply specific styles to the existing elements on the webpage. Follow the detailed instructions below to achieve this customization effectively.
+/* HIDE THE DEFAULT JELLYFIN LOGO */
+.pageTitle svg,
+.headerLogo,
+.pageTitleWithLogo > .logoIcon,
+.layout-desktop .pageTitleWithLogo .headerLogo {
+    display: none !important;
+}
 
-1. **Locate the Custom CSS File**: Ensure you have access to the Jellyfin dashboard and locate the custom CSS options.
-2. **Prepare Your Logo**: Upload your logo image to a location accessible by the Jellyfin server. Make a note of the URL for the image.
-3. **Add CSS Code**: Insert the following CSS code into the custom CSS section of Jellyfin:
-   ```css
-   /* Custom Logo for Jellyfin */
-   #header {
-       background: url('https://github.com/vaperaddict/Novion/blob/ca6a464b54c386a23d842357065445f823f9db58/ChatGPT%20Image%20Nov%2017%2C%202025%2C%2008_54_53%20AM.png') no-repeat left center;
-       background-size: contain;
-       height: 60px; /* Adjust based on your logo size */
-   }
-   /* Optionally hide the default logo */
-   #header .default-logo {
-       display: none;
-   }
-   ```
-   Replace `YOUR_IMAGE_URL_HERE` with the actual URL of your logo image.
-4. **Adjust Sizes**: Modify the height as necessary to fit the logo within the header appropriately.
-5. **Save Changes**: Save the CSS changes and refresh your Jellyfin interface to see the custom logo appear in the top left corner.
+/* ADD YOUR CUSTOM NOVION LOGO */
+.pageTitleWithLogo::before,
+.headerLogo::before {
+    content: "";
+    display: inline-block;
+    width: 160px;        /* adjust size */
+    height: 60px;        /* adjust size */
+    background-image: url("https://chatgpt.com/s/m_691ad81586c08191a2c418bf37aea8f6");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 12px;
+}
 
-6. **Testing**: Test on various screen sizes to ensure that the logo scales well and is displayed correctly across devices.
+/* CENTER ON LOGIN SCREEN */
+.login-logo,
+.login-logo img {
+    display: none !important;
+}
+
+.login-logo::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 80px;
+    margin: 0 auto 20px auto;
+    background-image: url("https://chatgpt.com/s/m_691ad81586c08191a2c418bf37aea8f6");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
