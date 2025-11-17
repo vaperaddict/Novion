@@ -1,0 +1,22 @@
+To create a custom logo in the top left corner of Jellyfin using CSS, you will need to apply specific styles to the existing elements on the webpage. Follow the detailed instructions below to achieve this customization effectively.
+
+1. **Locate the Custom CSS File**: Ensure you have access to the Jellyfin dashboard and locate the custom CSS options.
+2. **Prepare Your Logo**: Upload your logo image to a location accessible by the Jellyfin server. Make a note of the URL for the image.
+3. **Add CSS Code**: Insert the following CSS code into the custom CSS section of Jellyfin:
+   ```css
+   /* Custom Logo for Jellyfin */
+   #header {
+       background: url('YOUR_IMAGE_URL_HERE') no-repeat left center;
+       background-size: contain;
+       height: 60px; /* Adjust based on your logo size */
+   }
+   /* Optionally hide the default logo */
+   #header .default-logo {
+       display: none;
+   }
+   ```
+   Replace `YOUR_IMAGE_URL_HERE` with the actual URL of your logo image.
+4. **Adjust Sizes**: Modify the height as necessary to fit the logo within the header appropriately.
+5. **Save Changes**: Save the CSS changes and refresh your Jellyfin interface to see the custom logo appear in the top left corner.
+
+6. **Testing**: Test on various screen sizes to ensure that the logo scales well and is displayed correctly across devices.
